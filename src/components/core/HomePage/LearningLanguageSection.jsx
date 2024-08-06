@@ -7,12 +7,12 @@ import CTAButton from "../HomePage/Button"
 
 const LearningLanguageSection = () => {
   return (
-    <div className='mt-[130px] mb-32'>
+    <div className='mt-[130px] mb-20'>
       <div className='flex flex-col gap-5 items-center'>
 
             <div className='text-4xl font-semibold text-center'>
                 Your Swiss Knife for
-                <HighlightText text={" learning any language"} />
+                <HighlightText text={" learning any language"} color={"text-gradient"} />
             </div>
 
             <div className='text-center text-richblack-600 mx-auto text-base font-medium w-[70%]'>

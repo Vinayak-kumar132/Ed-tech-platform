@@ -1,3 +1,95 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* .text-gradient {
+    background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* .blob-bg {
+    width: 200px;
+    height: 100px; 
+    ellipse-1 blob
+    background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+    opacity: 0.2; 
+    border-radius: 50%;
+    ellipse-2 blob
+    background: linear-gradient(123.77deg, #8A2BE2 -6.46%, #FFA500 59.04%, #F8F8FF 124.53%);
+
+  } */
+  .blob-bg1 {
+    position: relative;
+    width: 100%; /* Adjust as needed */
+    height: 100%; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.blob-bg1::before {
+    content: " ";
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 60%;
+    height: 80%;
+    background: linear-gradient(123.77deg, #8A2BE2 -6.46%, #FFA500 59.04%, #F8F8FF 124.53%);
+    opacity: 0.25; /* Set the opacity to 20% */
+    filter: blur(40px);
+    border-radius: 50%; /* Make the shape an ellipse */
+    z-index: -1; /* Ensure the blob is behind the content */
+}
+
+.blob-bg2 {
+  position: relative;
+  width: 100%; /* Adjust as needed */
+  height: 100%; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.blob-bg2::before {
+  content: " ";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 60%;
+  height: 80%;
+  background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #1ea7e2 104.51%);
+  opacity: 0.2; /* Set the opacity to 20% */
+  filter: blur(40px);
+  border-radius: 50%; /* Make the shape an ellipse */
+  z-index: -1; /* Ensure the blob is behind the content */
+}
+
+
+
+
+  .border-background {
+    z-index: 100;
+    background: linear-gradient(111.93deg, rgba(14, 26, 45, 0.24) -1.4%, rgba(17, 30, 50, 0.3)104.96%);
+  
+    border: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(121.74deg, rgba(255, 255, 255, 0.22) -7.75%, rgba(255, 255, 255, 0) 37.38%);
+
+  }
+}
+
+
+
+
+/* By using @layer utilities, your custom utilities are treated as part of Tailwind's utility system. This ensures they are purged correctly during the build process, resulting in smaller CSS bundles. 
+  
+   While @layer utilities provides advantages in terms of integration and consistency with Tailwind’s ecosystem,  
+   
+   if you find that your custom CSS works well without @layer utilities, and you're managing it effectively, it is perfectly fine to use it directly.*/

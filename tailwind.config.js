@@ -130,7 +130,7 @@ module.exports = {
         maxContentTab: "650px"
       },
       boxShadow: {
-        'up-white': '-10px -10px 0px white', // white shadow on the left
+        'up-white': '-15px -15px 0px white', // white shadow on the left
         'top-blue': '-5px -5px 20px rgba(191, 219, 254, 0.5)', // light blue shadow on the right
         'combined': '15px 15px 0px white, -3px -3px 20px rgba(191, 219, 254, 0.5)', // combined shadows
       },
