@@ -26,6 +26,7 @@ exports.resetPasswordToken = async (req, res) => {
 		console.log("DETAILS", updatedDetails);
 
 		const url = `http://localhost:3000/update-password/${token}`;
+		console.log("FrontEnd Link for ResetPassword : ",url);
 
 		await mailSender(
 			email,
@@ -52,6 +53,7 @@ exports.resetPassword = async (req, res) => {
 		const { password, confirmPassword, token } = req.body;
 
 		if (confirmPassword !== password) {
+			
 			return res.json({
 				success: false,
 				message: "Password and Confirm Password Does not Match",

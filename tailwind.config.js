@@ -133,6 +133,7 @@ module.exports = {
         'up-white': '-15px -15px 0px white', // white shadow on the left
         'top-blue': '-5px -5px 20px rgba(191, 219, 254, 0.5)', // light blue shadow on the right
         'combined': '15px 15px 0px white, -3px -3px 20px rgba(191, 219, 254, 0.5)', // combined shadows
+        'bottom':"inset 0px -1px 0px rgba(255, 255, 255, 0.18)"// shadow -bottom
       },
     },
   },

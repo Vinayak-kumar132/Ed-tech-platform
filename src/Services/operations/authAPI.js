@@ -12,7 +12,7 @@ const {
   LOGIN_API,
   RESETPASSTOKEN_API,
   RESETPASSWORD_API,
-} = endpoints
+} = endpoints;
 
 export function sendOtp(email, navigate) {
   return async (dispatch) => {
@@ -31,14 +31,18 @@ export function sendOtp(email, navigate) {
         throw new Error(response.data.message)
       }
 
-      toast.success("OTP Sent Successfully")
-      navigate("/verify-email")
+      toast.success("OTP Sent Successfully");
+      console.log("yha tk to chal rha h finally");
+      navigate("/verify-email");
+      console.log("yha tk to chal rha h");
     } catch (error) {
       console.log("SENDOTP API ERROR............", error)
       toast.error("Could Not Send OTP")
     }
-    dispatch(setLoading(false))
-    toast.dismiss(toastId)
+
+    dispatch(setLoading(false));
+
+    toast.dismiss(toastId);
   }
 }
 
@@ -54,8 +58,10 @@ export function signUp(
 ) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...")
-    dispatch(setLoading(true))
+    dispatch(setLoading(true));
+
     try {
+      console.log("isi me dikkat h");
       const response = await apiConnector("POST", SIGNUP_API, {
         accountType,
         firstName,
@@ -64,7 +70,9 @@ export function signUp(
         password,
         confirmPassword,
         otp,
+       
       })
+
 
       console.log("SIGNUP API RESPONSE............", response)
 
@@ -133,6 +141,7 @@ export function getPasswordResetToken(email, setEmailSent) {
 
       toast.success("Reset Email Sent")
       setEmailSent(true)
+
     } catch (error) {
       console.log("RESETPASSTOKEN ERROR............", error)
       toast.error("Failed To Send Reset Email")

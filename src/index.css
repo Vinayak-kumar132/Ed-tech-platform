@@ -14,6 +14,31 @@
     -webkit-text-fill-color: transparent;
   }
 
+  .text-gradient-purple{
+    background: linear-gradient(117.95deg, #833AB4 -2.4%, #FD1D1D 52.25%, #FCB045 106.89%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+  .text-gradient-yellow{
+    background: linear-gradient(118.41deg, #E65C00 -6.05%, #F9D423 106.11%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+
+  /* for removing up-down arrow from the numerical input field */
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  
+  input[type='number'] {
+      -moz-appearance: textfield;
+      appearance: textfield;
+  }
+
   /* .blob-bg {
     width: 200px;
     height: 100px; 
