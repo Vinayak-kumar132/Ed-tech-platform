@@ -53,7 +53,7 @@ const Navbar = () => {
 
 
   return (
-    <div className='  w-full    flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700  z-10'>
+    <div className='  w-full  flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700  z-10 bg-richblack-800'>
       <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
 
         <Link to="/">
@@ -116,7 +116,7 @@ const Navbar = () => {
               //you should define frequently used string values or configuration settings in a separate file. like (constant.js) and then use not hardcode the magic string.
 
               // do styling
-              <Link to="dashboard/cart" className='relative'>
+              <Link to="dashboard/cart" className='relative text-richblack-100 text-xl'>
                 <IoCartOutline />
                 {
                   totalItems > 0 &&

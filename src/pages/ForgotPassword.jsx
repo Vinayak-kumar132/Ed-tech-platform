@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { getPasswordResetToken } from '../Services/operations/authAPI';
+import Spinner from '../components/common/Spinner';
 
 const ForgotPassword = () => {
   const { loading } = useSelector((state) => state.auth);
@@ -18,17 +19,20 @@ const ForgotPassword = () => {
 
  
   return (
-    <div className=' flex flex-col justify-center items-center text-white '>
+    <div className='h-[calc(100vh-3.5rem)] flex justify-center items-center'>
+      <div className='w-[508px] mx-auto p-10 '>
       {
-        loading ? (<div>Loading...</div>) :
+        loading ? (<div>
+          <Spinner/>
+        </div>) :
           (
-            <div>
-              <h1>
+            <div className='flex flex-col gap-4'>
+              <h1 className='text-2xl font-bold text-richblack-5'>
                 {
                   !emailSent ? "Reset your password" : "Check your Email"
                 }
               </h1>
-              <p>{
+              <p className='text-base text-richblack-200 '>{
                 !emailSent ? "Have no fear,we'll email you instructions to reset your password.if you dont have access to your email we can try account recovery" : `We have sent the reset email to ${email} `
               }
 
@@ -37,19 +41,19 @@ const ForgotPassword = () => {
                 {
                   !emailSent && (
                     <label>
-                      <p>Email Address*</p>
+                      <p className='text-richblack-50 font-lg'>Email Address <sup className='text-pink-200 font-bold'>*</sup></p>
                       <input required
                         type='email'
                         name='email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder='Enter Your Email Address'
-                        className='w-full p-6 bg-richblack-600 text-richblack-5'
+                        placeholder='Enter your email address...'
+                        className='w-full outline-none py-4 px-3 bg-richblack-800 text-richblack-5 rounded-lg shadow-bottom'
                       />
                     </label>
                   )
                 }
-                <button type='submit'>
+                <button type='submit' className='text-center bg-yellow-50 text-richblack-900 py-3 hover:bg-yellow-100  w-full rounded-lg mt-8 font-bold'>
                   {
                     !emailSent ? "Reset Password" : "Resend Email"
                   }
@@ -59,17 +63,20 @@ const ForgotPassword = () => {
 
               <div>
                 <Link to="/login">
-                  <div className='flex text-white items-center gap-2'>
+                  <div className='flex text-richblack-50 font-semiblod items-center gap-3 '>
                     <FaLongArrowAltLeft />
                     <p>Back to login</p>
                   </div>
 
                 </Link>
               </div>
+
             </div>
           )
       }
     </div>
+    </div>
+    
   )
 }
 

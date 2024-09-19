@@ -9,3 +9,6 @@ html, body {
 .homepage_bg {
     background: url("../src/assets/Images/bghome.svg");
 }
+.no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera (it does not work on linux)*/
+}

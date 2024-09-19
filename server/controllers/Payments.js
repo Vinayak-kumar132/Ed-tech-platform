@@ -142,7 +142,7 @@ exports.verifySignature = async (req, res) => {
                 console.log(emailResponse);
                 return res.status(200).json({
                     success:true,
-                    message:"Signature Verified and COurse Added",
+                    message:"Signature Verified and Course Added",
                 });
 
 
