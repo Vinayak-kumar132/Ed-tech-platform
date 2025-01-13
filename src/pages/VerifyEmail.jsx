@@ -29,8 +29,7 @@ const VerifyEmail = () => {
       email,
       password,
       confirmPassword,
-      otp,
-      navigate
+      // navigate
     } = signupData;
     dispatch(signUp(accountType,
       firstName,
@@ -55,37 +54,17 @@ const VerifyEmail = () => {
             <form onSubmit={handleOnSubmit}>
               <OTPInput
 
-                // value={otp}
-                // onChange={setOtp}
-                // numInputs={6}
-                // renderSeparator={<span>-</span>}
-                // renderInput={(props) => (<input {...props} placeholder='-'
-                // className='w-full p-6 bg-richblack-800 text-richblack-5'
-                // />)}
-               
+
                 value={otp}
                 onChange={setOtp}
                 numInputs={6}
                 renderSeparator={<span>-</span>}
-                renderInput={(props) => <input {...props} className='w-full
-        h-12
-        bg-richblack-800 
-        text-richblack-100 
-        text-center 
-        border-1 
-        border-transparent
-        rounded-md
-        focus:border-yellow-200 
-        focus:outline-none
-        focus:ring-2 
-        focus:ring-yellow-200
-        transition-all
-        duration-300 flex flex-grow shadow-bottom'/>}
+                renderInput={(props) => <input {...props} className='w-full h-12 bg-richblack-800 text-richblack-100 text-center border-1 border-transparent rounded-md focus:border-yellow-200  focus:outline-none focus:ring-2  focus:ring-yellow-200 transition-all duration-300 flex flex-grow shadow-bottom'/>}
 
               />
 
               <button type='submit'
-              className='text-center w-full bg-yellow-100 text-richblack-900 font-bold rounded-md py-2 px-3 mt-6'>
+                className='text-center w-full bg-yellow-100 text-richblack-900 font-bold rounded-md py-2 px-3 mt-6'>
                 Verify Email
               </button>
             </form>
@@ -101,7 +80,7 @@ const VerifyEmail = () => {
                 </Link>
               </div>
 
-              <button onClick={() => dispatch(sendOtp(signUp.email,navigate))}>
+              <button onClick={() => dispatch(sendOtp(signUp.email, navigate))}>
                 <div className='flex gap-2 text-blue-100 items-center'>
                   <TiArrowLoop />
                   <p>Resend it</p>

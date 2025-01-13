@@ -17,14 +17,14 @@ const Dashboard = () => {
   }
 
   return (
-    <div className='relative flex h-[calc(100vh-3.5rem)] bg-richblack-9 00 '>
+    <div className='relative flex h-[calc(100vh-3.5rem)] bg-richblack-9 overflow-y-hidden'>
       
       
       <Sidebar />
 
-      <div className='h-[calc(100vh-3.5rem)] overflow-auto no-scrollbar'>
+      <div className='h-[calc(100vh-3.5rem)] w-[calc(100vw-240px)] overflow-auto '>
 
-        <div className='mx-auto w-11/12 ml-[100px] max-w-[1000px] py-10'>
+        <div className=' w-full flex flex-grow mx-auto justify-between py-10'>
         {/* dashboard includes all the nested route ,<Outlet /> is a component from React Router that serves as a placeholder for rendering child routes */}
           <Outlet />
         </div>

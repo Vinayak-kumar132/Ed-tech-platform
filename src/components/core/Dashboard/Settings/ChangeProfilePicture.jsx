@@ -67,7 +67,7 @@ export default function ChangeProfilePicture() {
             className="aspect-square w-[78px] rounded-full object-cover"
           />
           <div className="space-y-2">
-            <p>Change Profile Picture</p>
+            <p className="text-medium font-semibold text-richblack-25">Change Profile Picture</p>
             <div className="flex flex-row gap-3">
               <input
                 type="file"

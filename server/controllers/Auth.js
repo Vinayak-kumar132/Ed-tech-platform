@@ -12,6 +12,7 @@ require("dotenv").config();
 
 exports.signup = async (req, res) => {
 	try {
+		
 		// Destructure fields from the request body
 		const {
 			firstName,
@@ -21,8 +22,13 @@ exports.signup = async (req, res) => {
 			confirmPassword,
 			accountType,
 			contactNumber,
-			otp,
+			 otp,
 		} = req.body;
+
+		// console.log('hello',req.body.otp);
+		// console.log('hello',req.body);
+	 
+	 
 		// Check if All Details are there or not
 		if (
 			!firstName ||
@@ -30,6 +36,7 @@ exports.signup = async (req, res) => {
 			!email ||
 			!password ||
 			!confirmPassword ||
+			!accountType ||
 			!otp
 		) {
 			return res.status(403).send({
@@ -38,6 +45,7 @@ exports.signup = async (req, res) => {
 			});
 		}
 		// Check if password and confirm password match
+		
 		if (password !== confirmPassword) {
 			return res.status(400).json({
 				success: false,
@@ -182,6 +190,7 @@ exports.login = async (req, res) => {
 exports.sendotp = async (req, res) => {
 	try {
 		const { email } = req.body;
+		console.log(email);
 
 		// Check if user is already present
 		// Find user with provided email
@@ -202,7 +211,7 @@ exports.sendotp = async (req, res) => {
 			lowerCaseAlphabets: false,
 			specialChars: false,
 		});
-		const result = await OTP.findOne({ otp: otp });
+		const result = await OTP.findOne({otp:otp});
 		console.log("Result is Generate OTP Func");
 		console.log("OTP", otp);
 		console.log("Result", result);

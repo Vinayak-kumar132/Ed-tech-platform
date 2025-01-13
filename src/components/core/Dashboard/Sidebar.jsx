@@ -117,7 +117,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className='text-white '>
+    <div className='text-white no-scrollbar'>
       <div className=' flex flex-col w-[240px] border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10 h-[calc(100vh-3.5rem)] '>
             {/* flex flex-col min-w-[222px] border-r-[1px] border-r-richblack-700 bg-richblack-800 py-20 h-[calc(100vh-3.5rem)] */}
          

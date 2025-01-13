@@ -6,9 +6,49 @@ html, body {
     overflow-x: hidden;
 }
 
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #afb2bf;
+  }
+  
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #000814;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #afb2bf;
+    border-radius: 10px;
+    visibility: hidden;
+  }
+  
+  *:active::-webkit-scrollbar-thumb,
+  *:focus::-webkit-scrollbar-thumb,
+  *:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+  }
+
 .homepage_bg {
     background: url("../src/assets/Images/bghome.svg");
 }
 .no-scrollbar::-webkit-scrollbar {
     display: none; /* Chrome, Safari, and Opera (it does not work on linux)*/
 }
+.yellowButton {
+    @apply cursor-pointer rounded-md bg-yellow-50 px-[20px] py-[8px] font-semibold text-richblack-900;
+  }
+/* .blackButton {
+    @apply cursor-pointer rounded-md bg-richblack-800 px-[20px] py-[8px] font-semibold text-richblack-5;
+  } */
+  /* .lable-style {
+    @apply text-[14px] text-richblack-5;
+  } */
+  .form-style {
+    @apply rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
+  }

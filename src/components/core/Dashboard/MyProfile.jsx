@@ -70,9 +70,9 @@ const MyProfile = () => {
     const navigate = useNavigate();
     return (
        
-        <div className='text-white w-[750px] ml-[100px] p-2'>
+        <div className='text-richblack-50 w-10/12 mx-auto   p-2'>
 
-            <h1 className='text-2xl font-bold ml-[-100px]'>
+            <h1 className='text-2xl font-extrabold mb-10'>
                 My Profile
             </h1>
 
