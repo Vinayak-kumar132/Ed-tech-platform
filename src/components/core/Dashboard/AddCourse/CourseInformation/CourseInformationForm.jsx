@@ -147,7 +147,7 @@ export default function CourseInformationForm() {
     formData.append("instructions", JSON.stringify(data.courseRequirements))
     formData.append("thumbnailImage", data.courseImage)
     setLoading(true)
-    const result = await addCourseDetails(formData, token)
+    const result = await addCourseDetails(formData, token);
     if (result) {
       dispatch(setStep(2))
       dispatch(setCourse(result))
@@ -156,6 +156,7 @@ export default function CourseInformationForm() {
   }
 
   return (
+    
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-8 w-[650px]  rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6"
