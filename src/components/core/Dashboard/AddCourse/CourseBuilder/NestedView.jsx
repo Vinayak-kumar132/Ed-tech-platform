@@ -90,7 +90,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
                     })
                   }
                 >
-                  <RiDeleteBin6Line className="text-xl text-richblack-300 hover:text-pink-400" />
+                  <RiDeleteBin6Line className="text-xl text-richblack-300 hover:text-[#ff0000]" />
                 </button>
                 <span className="font-medium text-richblack-300">|</span>
                 <AiFillCaretDown className={`text-xl text-richblack-300`} />
@@ -137,7 +137,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
                         })
                       }
                     >
-                      <RiDeleteBin6Line className="text-xl text-richblack-300 hover:text-pink-500" />
+                      <RiDeleteBin6Line className="text-xl text-richblack-300 hover:text-[#ff0000]" />
                     </button>
                   </div>
                 </div>
