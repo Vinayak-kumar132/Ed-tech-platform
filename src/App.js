@@ -13,6 +13,7 @@ import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import Dashboard from "./pages/Dashboard";
+import Catalog from "./pages/Catalog"
 import EditCourse from "./components/core/Dashboard/EditCourse"
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import Settings from "./components/core/Dashboard/Settings/Settings";
@@ -46,6 +47,7 @@ function App() {
 
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/catalog/:catalogName" element={<Catalog />} />
 
         <Route path="/update-password/:id" element={<OpenRoute><UpdatePassword /></OpenRoute>} />
 

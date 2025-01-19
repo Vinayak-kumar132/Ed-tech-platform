@@ -6,8 +6,10 @@ import { useLocation, matchPath } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { IoCartOutline, IoChevronDownSharp } from "react-icons/io5";
 import ProfileDropDown from '../core/Auth/ProfileDropDown';
-import {courseEndpoints } from '../../Services/apis'
+// import {courseEndpoints } from '../../Services/apis'
+import { categories } from "../../Services/apis"
 import { apiConnector } from '../../Services/apiConnector'
+import { ACCOUNT_TYPE } from "../../utils/constants"
 
 
 const Navbar = () => {
@@ -16,40 +18,29 @@ const Navbar = () => {
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
   const { totalItems } = useSelector((state) => state.cart);
-
   const location = useLocation();
+
+  const [subLinks, setSubLinks] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    (async () => {
+      setLoading(true)
+      try {
+        const res = await apiConnector("GET", categories.CATEGORIES_API)
+        setSubLinks(res.data.data)
+
+      } catch (error) {
+        console.log("Could not fetch Categories.", error)
+      }
+      setLoading(false)
+    })()
+  }, [])
+
+
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname);
   }
-  // const subLinks = [
-  //   {
-  //     title: "Python",
-  //     link: "catalog/python"
-  //   },
-  //   {
-  //     title: "Web-Development",
-  //     link: "catalog/web-development"
-  //   }
-  // ];
-
-  // python webDevelopment comes unser catelog is also a sublinks
-  const [subLinks, setSubLinks] = useState([]);
-
-  const fetchSubLinks = async () => {
-    try {
-
-      const result = await apiConnector("GET", courseEndpoints.COURSE_CATEGORIES_API);
-      console.log("Printing sublinks", result);
-      setSubLinks(result.data.data);
-    } catch (error) {
-      console.log("Could not fetch the categories list");
-    }
-
-  }
-
-  useEffect(() => {
-    fetchSubLinks();
-  }, []);
 
 
   return (
@@ -68,29 +59,36 @@ const Navbar = () => {
                 <li key={index}>
                   {
                     link.title === "Catalog" ? (
-                      <div className='relative flex items-center gap-2 group'>
+                      <div
+                        className={`group relative flex cursor-pointer items-center gap-2 ${matchRoute("/catalog/:catalogName") ? "text-yellow-25" : "text-richblack-25"
+                          }`}
+                      >
                         <p>{link.title}</p>
-                        <IoChevronDownSharp/>
-                        <div className='invisible absolute left-[50%]  translate-x-[-50%] translate-y-[50%] top-[10%] flex flex-col rounded-md bg-richblack-5 p-3 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[300px]'>
-
-                        <div className='absolute left-[50%] top-0 translate-y-[-45%]  h-6 w-6 rotate-45 bg-richblack-5 translate-x-[80%] rounded-sm '>
-                        
-                          </div>
-                          {
-                          subLinks.length?(
-                            subLinks.map((subLinks,index)=>(
-                              <Link to={`${subLinks.link}`} key={index}> 
-                              <p className='mt-1 py-2 bg-richblack-25 rounded-md font-bold text-center'>{subLinks.title}</p>
+                        <IoChevronDownSharp />
+                        {/* Dropdown container */}
+                        <div
+                          className="invisible absolute left-[50%] top-full z-[1000] flex w-[300px] translate-x-[-50%] translate-y-2 flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-4 group-hover:opacity-100"
+                        >
+                          {/* Arrow */}
+                          <div className="absolute left-[50%] top-0 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-richblack-5"></div>
+                          {/* Content */}
+                          {loading ? (
+                            <p className="text-center">Loading...</p>
+                          ) : subLinks.length ? (
+                            subLinks.map((subLink, i) => (
+                              <Link
+                                to={`/catalog/${subLink.name.split(" ").join("-").toLowerCase()}`}
+                                key={i}
+                                className="mt-1 rounded-md bg-richblack-25 py-2 text-center font-bold text-richblack-900 hover:bg-richblack-50"
+                              >
+                                <p>{subLink.name}</p>
                               </Link>
                             ))
-                          ):
-                          (<div></div>)
-                        }
-                         
+                          ) : (
+                            <p className="text-center">No Courses Found</p>
+                          )}
                         </div>
-                        
                       </div>
-
                     ) : (
                       <Link to={link?.path}>
                         <p className={`${matchRoute(link?.path) ? "text-yellow-25" : "text-richblack-25"}`}>
@@ -108,6 +106,7 @@ const Navbar = () => {
 
           </ul>
         </nav>
+
 
         {/* login/signup /dashboard*/}
         <div className='flex gap-x-4 items-center'>
