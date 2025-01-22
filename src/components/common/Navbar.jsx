@@ -116,13 +116,20 @@ const Navbar = () => {
 
               // do styling
               <Link to="dashboard/cart" className='relative text-richblack-100 text-xl'>
-                <IoCartOutline />
-                {
-                  totalItems > 0 &&
-                  <span>
-                    {totalItems}
-                  </span>
-                }
+                <div className='relative '>
+                  
+                  <IoCartOutline size={28}/>
+                  
+                  
+                  {
+                    totalItems > 0 &&
+                    <span
+                      className='absolute flex items-center justify-center top-[-4px] right-[-4px] text-xs font-bold bg-caribbeangreen-25  text-richblack-700 h-4 w-4 rounded-full'>
+                      {totalItems}
+                    </span>
+
+                  }
+                </div>
               </Link>
             )
           }

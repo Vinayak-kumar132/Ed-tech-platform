@@ -43,9 +43,9 @@ html, body {
 .yellowButton {
     @apply cursor-pointer rounded-md bg-yellow-50 px-[20px] py-[8px] font-semibold text-richblack-900;
   }
-/* .blackButton {
+.blackButton {
     @apply cursor-pointer rounded-md bg-richblack-800 px-[20px] py-[8px] font-semibold text-richblack-5;
-  } */
+  }
   /* .lable-style {
     @apply text-[14px] text-richblack-5;
   } */

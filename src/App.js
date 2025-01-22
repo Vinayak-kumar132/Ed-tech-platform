@@ -16,6 +16,7 @@ import Dashboard from "./pages/Dashboard";
 import Catalog from "./pages/Catalog"
 import EditCourse from "./components/core/Dashboard/EditCourse"
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
+import CourseDetails from "./pages/CourseDetails"
 import Settings from "./components/core/Dashboard/Settings/Settings";
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
 import Cart from "./components/core/Dashboard/Cart";
@@ -48,11 +49,23 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/catalog/:catalogName" element={<Catalog />} />
+        <Route path="/courses/:courseId" element={<CourseDetails/>} />
 
         <Route path="/update-password/:id" element={<OpenRoute><UpdatePassword /></OpenRoute>} />
 
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/error" element={<Error />} />
+
+        {/* Route only for Students */}
+        {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+              <Route
+                path="dashboard/enrolled-courses"
+                element={<EnrolledCourses />}
+              />
+              <Route path="/dashboard/cart" element={<Cart />} />
+            </>
+          )}
 
         <Route
           element={
