@@ -111,6 +111,52 @@
 }
 
 
+/* Even smaller squarish rounded checkbox with a greenish shade */
+.premium-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  width: 18px; /* Smaller width */
+  height: 18px; /* Smaller height */
+  border-radius: 4px; /* Slightly squarish rounded corners */
+  border: 2px solid #2ecc71; /* Greenish border color */
+  background-color: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.premium-checkbox:checked {
+  background-color: #2ecc71; /* Green background when checked */
+  border-color: #27ae60; /* Darker green border when checked */
+}
+
+.premium-checkbox:checked::before {
+  content: "✔"; /* Checkmark when checked */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px; /* Even smaller checkmark font size */
+  color: white;
+  font-weight: bold;
+}
+
+.premium-checkbox:hover {
+  border-color: #27ae60; /* Darker green on hover */
+}
+
+.premium-checkbox:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(46, 204, 113, 0.7); /* Greenish focus effect */
+}
+
+
+
 
 
 /* By using @layer utilities, your custom utilities are treated as part of Tailwind's utility system. This ensures they are purged correctly during the build process, resulting in smaller CSS bundles. 

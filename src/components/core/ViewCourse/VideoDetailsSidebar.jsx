@@ -20,7 +20,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
   } = useSelector((state) => state.viewCourse)
 
   useEffect(() => {
-    ;(() => {
+    ; (() => {
       if (!courseSectionData.length) return
       const currentSectionIndx = courseSectionData.findIndex(
         (data) => data._id === sectionId
@@ -32,7 +32,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
         courseSectionData[currentSectionIndx]?.subSection?.[
           currentSubSectionIndx
         ]?._id
-        //yha par current section ko set kar rhe h
+      //yha par current section ko set kar rhe h
       setActiveStatus(courseSectionData?.[currentSectionIndx]?._id)
       // yha current subsection ko highlight kar rhe h
       setVideoBarActive(activeSubSectionId)
@@ -42,23 +42,25 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
 
   return (
     <>
-      <div className="flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800">
+      <div className="flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 ">
         <div className="mx-5 flex flex-col items-start justify-between gap-2 gap-y-4 border-b border-richblack-600 py-5 text-lg font-bold text-richblack-25">
-          <div className="flex w-full items-center justify-between ">
+          <div className="flex w-full items-center  justify-between ">
             <div
               onClick={() => {
                 navigate(`/dashboard/enrolled-courses`)
               }}
-              className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-richblack-100 p-1 text-richblack-700 hover:scale-90"
+              className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-richblack-200 p-1 text-richblack-600 hover:scale-90 duration-200"
               title="back"
             >
               <IoIosArrowBack size={30} />
             </div>
-            <IconBtn
+            
+            {/* <IconBtn
               text="Add Review"
               customClasses="ml-auto"
               onclick={() => setReviewModal(true)}
-            />
+            /> */}
+            <button onClick={() => setReviewModal(true)} type="button" class="text-gray-900 bg-richblack-600 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-bold rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Add Review</button>
           </div>
           <div className="flex flex-col">
             <p>{courseEntireData?.courseName}</p>
@@ -85,11 +87,10 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                     Lession {course?.subSection.length}
                   </span> */}
                   <span
-                    className={`${
-                      activeStatus === course?.sectionName
+                    className={`${activeStatus === course?.sectionName
                         ? "rotate-0"
                         : "rotate-180"
-                    } transition-all duration-500`}
+                      } transition-all duration-500`}
                   >
                     <BsChevronDown />
                   </span>
@@ -101,11 +102,10 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                 <div className="transition-[height] duration-500 ease-in-out">
                   {course.subSection.map((topic, i) => (
                     <div
-                      className={`flex gap-3  px-5 py-2 ${
-                        videoBarActive === topic._id
+                      className={`flex gap-3  px-5 py-2 ${videoBarActive === topic._id
                           ? "bg-yellow-200 font-semibold text-richblack-800"
                           : "hover:bg-richblack-900"
-                      } `}
+                        } `}
                       key={i}
                       onClick={() => {
                         navigate(
@@ -116,9 +116,11 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                     >
                       <input
                         type="checkbox"
+                        className="premium-checkbox"
                         checked={completedLectures.includes(topic?._id)}
-                        onChange={() => {}}
+                        onChange={() => { }}
                       />
+
                       {topic.title}
                     </div>
                   ))}

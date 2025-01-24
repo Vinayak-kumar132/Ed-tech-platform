@@ -4,7 +4,19 @@ import { useNavigate, useParams } from "react-router-dom"
 
 import "video-react/dist/video-react.css"
 import { useLocation } from "react-router-dom"
-import { BigPlayButton, Player } from "video-react"
+import { RxDoubleArrowLeft } from "react-icons/rx";
+import { RxDoubleArrowRight } from "react-icons/rx";
+import { IoRepeat } from "react-icons/io5";
+import {
+  BigPlayButton,
+  Player,
+  ControlBar,
+  PlaybackRateMenuButton,
+  ReplayControl,
+  ForwardControl,
+  CurrentTimeDisplay,
+  TimeDivider,
+} from "video-react"
 
 import { markLectureAsComplete } from "../../../Services/operations/courseDetailsAPI"
 import { updateCompletedLectures } from "../../../slices/viewCourseSlice"
@@ -35,7 +47,7 @@ const VideoDetails = () => {
         const filteredData = courseSectionData.filter(
           (course) => course._id === sectionId
         )
-        
+
         // console.log("filteredData", filteredData)
         const filteredVideoData = filteredData?.[0]?.subSection.filter(
           (data) => data._id === subSectionId
@@ -170,7 +182,7 @@ const VideoDetails = () => {
   }
 
   return (
-    <div className="flex flex-col gap-5 text-white">
+    <div className="flex flex-col gap-5 text-richblack-25">
       {!videoData ? (
         <img
           src={previewSource}
@@ -179,13 +191,29 @@ const VideoDetails = () => {
         />
       ) : (
         <Player
+          //   ref={playerRef}
+          //   aspectRatio="16:9"
+          //   playsInline
+          //   onEnded={() => setVideoEnded(true)}
+          //   src={videoData?.videoUrl}
+          // >
+          //   <BigPlayButton position="center" />
           ref={playerRef}
           aspectRatio="16:9"
           playsInline
           onEnded={() => setVideoEnded(true)}
           src={videoData?.videoUrl}
+          className="outline-none"
         >
           <BigPlayButton position="center" />
+          <ControlBar autoHide={false}>
+            <PlaybackRateMenuButton rates={[0.5, 1, 1.5, 2]} order={7.1} />
+            <ReplayControl seconds={5} order={8} />
+            <ForwardControl seconds={5} order={9} />
+            <CurrentTimeDisplay order={4.1} />
+            <TimeDivider order={4.2} />
+          </ControlBar>
+
           {/* Render When Video Ends */}
           {videoEnded && (
             <div
@@ -193,50 +221,35 @@ const VideoDetails = () => {
                 backgroundImage:
                   "linear-gradient(to top, rgb(0, 0, 0), rgba(0,0,0,0.7), rgba(0,0,0,0.5), rgba(0,0,0,0.1)",
               }}
-              className="full absolute inset-0 z-[100] grid h-full place-content-center font-inter"
+              className="full absolute inset-0 z-[100] grid h-full  font-inter"
             >
               {!completedLectures.includes(subSectionId) && (
                 <IconBtn
                   disabled={loading}
                   onclick={() => handleLectureCompletion()}
                   text={!loading ? "Mark As Completed" : "Loading..."}
-                  customClasses="text-lg max-w-max mx-auto"
+                  customClasses="text-lg font-semibold max-w-max mx-auto mt-6"
                 />
               )}
               <div className="my-2"></div>
-              <IconBtn
-                disabled={loading}
-                onclick={() => {
-                  if (playerRef?.current) {
-                    // set the current time of the video to 0
-                    playerRef?.current?.seek(0)
-                    playerRef?.current?.play()
-                    setVideoEnded(false)
+               {
+                    !isFirstVideo() && (
+                      <div className=' z-20 left-4 top-1/2 transform -translate-y-1/2 absolute m-5'>
+                        <RxDoubleArrowLeft onClick={goToPrevVideo} className=" text-2xl md:text-3xl  cursor-pointer hover:scale-90 duration-200 "/>
+                      </div>
+                    )
+
                   }
-                }}
-                text="Rewatch"
-                customClasses="text-lg max-w-max mx-auto"
-              />
-              <div className="mt-10 flex min-w-[250px] justify-center gap-x-4 text-xl">
-                {!isFirstVideo() && (
-                  <button
-                    disabled={loading}
-                    onClick={goToPrevVideo}
-                    className="blackButton"
-                  >
-                    Prev
-                  </button>
-                )}
-                {!isLastVideo() && (
-                  <button
-                    disabled={loading}
-                    onClick={goToNextVideo}
-                    className="blackButton"
-                  >
-                    Next
-                  </button>
-                )}
-              </div>
+                  {
+                    !isLastVideo() && (
+                      <div className=' z-20 right-4 top-1/2 transform -translate-y-1/2 absolute m-5'>
+                        <RxDoubleArrowRight onClick={goToNextVideo} className="text-2xl md:text-3xl cursor-pointer hover:scale-90 duration-200"/>
+                        </div>
+                    )
+                  }
+                    {
+                    <IoRepeat onClick={() =>{ playerRef.current.seek(0);playerRef.current.play();setVideoEnded(false)}} className="text-2xl md:text-3xl  cursor-pointer hover:scale-90 duration-200 absolute left-1/2 top-1/2 z-20"/>
+                  }
             </div>
           )}
         </Player>
@@ -249,6 +262,3 @@ const VideoDetails = () => {
 }
 
 export default VideoDetails
-
-
-
