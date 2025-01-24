@@ -31,6 +31,7 @@ export default function RenderCartCourses() {
                 {course?.category?.name}
               </p>
               <div className="flex items-center gap-2">
+                {/* Yha ek issue hai Rating ko avg rating se update karna h */}
                 <span className="text-yellow-5">4.5</span>
                 <ReactStars
                   count={5}

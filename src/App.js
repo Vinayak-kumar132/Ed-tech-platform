@@ -14,7 +14,9 @@ import ContactUs from "./pages/ContactUs";
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import Dashboard from "./pages/Dashboard";
 import Catalog from "./pages/Catalog"
+import ViewCourse from "./pages/ViewCourse"
 import EditCourse from "./components/core/Dashboard/EditCourse"
+import VideoDetails from "./components/core/ViewCourse/VideoDetails"
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import CourseDetails from "./pages/CourseDetails"
 import Settings from "./components/core/Dashboard/Settings/Settings";
@@ -102,6 +104,25 @@ function App() {
             )
           }
 
+         
+
+        </Route>
+          {/* For the watching course lectures */}
+          <Route
+          element={
+            <PrivateRoute>
+              <ViewCourse />
+            </PrivateRoute>
+          }
+        >
+          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+              <Route
+                path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+                element={<VideoDetails />}
+              />
+            </>
+          )}
         </Route>
 
 
