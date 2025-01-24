@@ -352,7 +352,6 @@ const enrollStudents = async (courses, userId, res) => {
       )
 
       console.log("Enrolled student: ", enrolledStudent)
-      // Dikkat isme hai
       // Send an email notification to the enrolled student
       const emailResponse = await mailSender(
         enrolledStudent.email,
