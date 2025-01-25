@@ -59,7 +59,7 @@ function App() {
         <Route path="/error" element={<Error />} />
 
         {/* Route only for Students */}
-        {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+        {/* {user?.accountType === ACCOUNT_TYPE.STUDENT && (
             <>
               <Route
                 path="dashboard/enrolled-courses"
@@ -67,7 +67,7 @@ function App() {
               />
               <Route path="/dashboard/cart" element={<Cart />} />
             </>
-          )}
+          )} */}
 
         <Route
           element={
@@ -95,6 +95,7 @@ function App() {
               <>
                 <Route path="dashboard/add-course" element={<AddCourse />} />
                 <Route path="dashboard/my-courses" element={<MyCourses />} />
+                {/* <Route path="dashboard/instructor" element={<Instructor />} /> */}
                 <Route
                 path="dashboard/edit-course/:courseId"
                 element={<EditCourse />}

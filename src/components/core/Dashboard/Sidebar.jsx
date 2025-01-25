@@ -122,7 +122,7 @@ const Sidebar = () => {
             {/* flex flex-col min-w-[222px] border-r-[1px] border-r-richblack-700 bg-richblack-800 py-20 h-[calc(100vh-3.5rem)] */}
          
 
-        <div className='flex flex-col'>
+        <div className='flex flex-col gap-2'>
           {
             sidebarLinks.map((link) => {
               if (link.type && user?.accountType !== link.type) return null;
@@ -132,9 +132,9 @@ const Sidebar = () => {
             })}
         </div>
 
-        <div className='mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-600'></div>
+        <div className='mx-auto mt-6 mb-6 h-[2px] w-10/12 bg-richblack-600'></div>
 
-        <div className='flex flex-col'>
+        <div className='flex flex-col gap-2'>
           <SidebarLink 
             link={{ name: "Settings", path: "dashboard/settings" }}
             iconName="VscSettingsGear"
@@ -154,8 +154,8 @@ const Sidebar = () => {
           >
 
             <div className='flex items-center gap-x-2 ml-8'>
-              <VscSignOut className='text-xl font-bold' />
-              <span>Logout</span>
+              <VscSignOut className='text-lg font-bold text-richblack-100' />
+              <span className='text-richblack-100 font-bold'>Logout</span>
             </div>
 
           </button>

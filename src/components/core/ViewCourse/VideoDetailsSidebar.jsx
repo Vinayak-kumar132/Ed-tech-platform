@@ -4,7 +4,7 @@ import { IoIosArrowBack } from "react-icons/io"
 import { useSelector } from "react-redux"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 
-import IconBtn from "../../common/IconBtn"
+// import IconBtn from "../../common/IconBtn"
 
 export default function VideoDetailsSidebar({ setReviewModal }) {
   const [activeStatus, setActiveStatus] = useState("")
@@ -54,7 +54,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
             >
               <IoIosArrowBack size={30} />
             </div>
-            
+
             {/* <IconBtn
               text="Add Review"
               customClasses="ml-auto"
@@ -86,14 +86,21 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                   {/* <span className="text-[12px] font-medium">
                     Lession {course?.subSection.length}
                   </span> */}
-                  <span
+                  {/* <span
                     className={`${activeStatus === course?.sectionName
                         ? "rotate-0"
                         : "rotate-180"
                       } transition-all duration-500`}
                   >
                     <BsChevronDown />
+                  </span> */}
+                  <span
+                    className={`${activeStatus === course?._id ? "rotate-0" : "rotate-180"
+                      } transition-all duration-500`}
+                  >
+                    <BsChevronDown />
                   </span>
+
                 </div>
               </div>
 
@@ -103,8 +110,8 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                   {course.subSection.map((topic, i) => (
                     <div
                       className={`flex gap-3  px-5 py-2 ${videoBarActive === topic._id
-                          ? "bg-yellow-200 font-semibold text-richblack-800"
-                          : "hover:bg-richblack-900"
+                        ? "bg-yellow-200 font-semibold text-richblack-800"
+                        : "hover:bg-richblack-900"
                         } `}
                       key={i}
                       onClick={() => {

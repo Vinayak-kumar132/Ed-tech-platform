@@ -11,11 +11,12 @@ import "../../App.css"
 // Icons
 import { FaStar } from "react-icons/fa"
 // Import required modules
-import { Autoplay, FreeMode, Pagination } from "swiper"
+import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
+
 
 // Get apiFunction and the endpoint
-import { apiConnector } from "../../services/apiConnector"
-import { ratingsEndpoints } from "../../services/apis"
+import { apiConnector } from "../../Services/apiConnector"
+import { ratingsEndpoints } from "../../Services/apis"
 
 function ReviewSlider() {
   const [reviews, setReviews] = useState([])
@@ -48,12 +49,12 @@ function ReviewSlider() {
             disableOnInteraction: false,
           }}
           modules={[FreeMode, Pagination, Autoplay]}
-          className="w-full "
+          className="w-full flex mx-auto"
         >
           {reviews.map((review, i) => {
             return (
               <SwiperSlide key={i}>
-                <div className="flex flex-col gap-3 bg-richblack-800 p-3 text-[14px] text-richblack-25">
+                <div className="flex flex-col gap-3 bg-richblack-800 p-5 rounded-lg text-[14px] text-richblack-25 shadow-bottom">
                   <div className="flex items-center gap-4">
                     <img
                       src={
@@ -97,7 +98,6 @@ function ReviewSlider() {
               </SwiperSlide>
             )
           })}
-          {/* <SwiperSlide>Slide 1</SwiperSlide> */}
         </Swiper>
       </div>
     </div>

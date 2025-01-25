@@ -10,6 +10,7 @@ import Stats from "../components/core/AboutPage/Stats"
 import LearningGrid from '../components/core/AboutPage/LearningGrid'
 import ContactFormSection from '../components/core/AboutPage/ContactFormSection'
 import Footer from "../components/common/Footer"
+import ReviewSlider from '../components/common/ReviewSlider';
 
 
 const About = () => {
@@ -184,12 +185,13 @@ const About = () => {
 
             {/* section 6 */}
             {/* review slider -->H/W */}
-            <div className='mt-20'>
-                <h1 className='text-center text-[36px] font-semibold text-richblack-25'>Reviews from other learners</h1>
+            <div className='mt-20 flex flex-col justify-center items-center'>
+                <h1 className='text-center font-edu-sa text-[36px] font-semibold text-richblack-5'>Reviews from other learners</h1>
+                <ReviewSlider/>
             </div>
 
             {/* section 7 */}
-            <div className='mt-32'>
+            <div className='mt-20'>
                 <Footer />
             </div>
         </div>
