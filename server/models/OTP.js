@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const mailSender = require("../utils/mailSender");
 const emailTemplate = require("../mail/templates/emailVerificationTemplate");
-const { FaBullseye } = require("react-icons/fa");
+// const { FaBullseye } = require("react-icons/fa");
 const OTPSchema = new mongoose.Schema({
 	email: {
 		type: String,
