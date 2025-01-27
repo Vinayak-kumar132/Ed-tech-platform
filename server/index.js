@@ -23,10 +23,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
 	cors({
-		origin:"http://localhost:3000",
-		credentials:true,
+	  origin: [
+		"https://studynotion-edtechplatform-ten.vercel.app", // Deployed frontend URL
+		"http://localhost:3000" // Local development URL
+	  ],
+	  credentials: true, // If you are using cookies or sessions
 	})
-)
+  );
 
 app.use(
 	fileUpload({
