@@ -23,18 +23,17 @@ export function sendOtp(email, navigate) {
         email,
         checkUserPresent: true,
       })
-      console.log("SENDOTP API RESPONSE............", response)
+      // console.log("SENDOTP API RESPONSE............", response)
 
-      console.log(response.data.success)
+      // console.log(response.data.success)
 
       if (!response.data.success) {
         throw new Error(response.data.message)
       }
 
       toast.success("OTP Sent Successfully");
-      console.log("yha tk to chal rha h finally");
       navigate("/verify-email");
-      console.log("yha tk to chal rha h");
+      
     } catch (error) {
       console.log("SENDOTP API ERROR............", error)
       toast.error("Could Not Send OTP")
@@ -61,7 +60,6 @@ export function signUp(
     dispatch(setLoading(true));
 
     try {
-      console.log("isi me dikkat h");
       const response = await apiConnector("POST", SIGNUP_API, {
         accountType,
         firstName,
@@ -74,7 +72,7 @@ export function signUp(
       })
 
 
-      console.log("SIGNUP API RESPONSE............", response)
+      // console.log("SIGNUP API RESPONSE............", response)
 
       if (!response.data.success) {
         throw new Error(response.data.message)
@@ -101,7 +99,7 @@ export function login(email, password, navigate) {
         password,
       })
 
-      console.log("LOGIN API RESPONSE............", response)
+      // console.log("LOGIN API RESPONSE............", response)
 
       if (!response.data.success) {
         throw new Error(response.data.message)
@@ -136,7 +134,7 @@ export function getPasswordResetToken(email, setEmailSent) {
         email,
       })
 
-      console.log("RESETPASSTOKEN RESPONSE............", response)
+      // console.log("RESETPASSTOKEN RESPONSE............", response)
 
       if (!response.data.success) {
         throw new Error(response.data.message)
@@ -165,7 +163,7 @@ export function resetPassword(password, confirmPassword, token, navigate) {
         token,
       })
 
-      console.log("RESETPASSWORD RESPONSE............", response)
+      // console.log("RESETPASSWORD RESPONSE............", response)
 
       if (!response.data.success) {
         throw new Error(response.data.message)

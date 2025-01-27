@@ -15,7 +15,7 @@ function getRandomInt(max) {
         name: name,
         description: description,
       })
-      console.log(CategorysDetails)
+      // console.log(CategorysDetails)
       return res.status(200).json({
         success: true,
         message: "Categorys Created Successfully",
@@ -61,7 +61,7 @@ exports.categoryPageDetails = async (req, res) => {
         })
         .exec() // Query ko run karo
   
-      console.log("SELECTED COURSE", selectedCategory)
+      // console.log("SELECTED COURSE", selectedCategory)
       // Handle the case when the category is not found
       if (!selectedCategory) {
         console.log("Category not found.")
@@ -94,7 +94,6 @@ exports.categoryPageDetails = async (req, res) => {
           // }
         })
         .exec()
-      console.log()
       // Get top-selling courses across all categories
       const allCategories = await Category.find()
         .populate({

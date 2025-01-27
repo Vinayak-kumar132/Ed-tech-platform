@@ -207,12 +207,16 @@ const Home = () => {
 
                 <h2 className='text-center  font-edu-sa text-4xl font-semibold mt-10 '>Review from other learners</h2>
                 <ReviewSlider/>
+            
+                
             </div>
             
 
 
             {/*Footer */}
+            
             <Footer />
+            
 
         </div>
     )

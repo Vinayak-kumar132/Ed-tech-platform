@@ -142,7 +142,7 @@ function CourseDetails() {
               />
             </div>
             <div
-              className={`z-30 my-5 flex flex-col justify-center gap-4 py-5 text-lg text-richblack-5`}
+              className={`z-20 my-5 flex flex-col justify-center gap-4 py-5 text-lg text-richblack-5`}
             >
               <div>
                 <p className="text-4xl font-bold text-richblack-5 sm:text-[42px]">
@@ -164,11 +164,11 @@ function CourseDetails() {
               <div className="flex flex-wrap gap-5 text-lg">
                 <p className="flex items-center gap-2">
                   {" "}
-                  <BiInfoCircle /> Created at {formatDate(createdAt)}
+                  <BiInfoCircle className="text-caribbeangreen-100" /> Created at {formatDate(createdAt)}
                 </p>
                 <p className="flex items-center gap-2">
                   {" "}
-                  <HiOutlineGlobeAlt /> English
+                  <HiOutlineGlobeAlt className="text-blue-100 text-xl" /> English
                 </p>
               </div>
             </div>

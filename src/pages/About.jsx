@@ -187,7 +187,10 @@ const About = () => {
             {/* review slider -->H/W */}
             <div className='mt-20 flex flex-col justify-center items-center'>
                 <h1 className='text-center font-edu-sa text-[36px] font-semibold text-richblack-5'>Reviews from other learners</h1>
+                <div>
                 <ReviewSlider/>
+                </div>
+                
             </div>
 
             {/* section 7 */}

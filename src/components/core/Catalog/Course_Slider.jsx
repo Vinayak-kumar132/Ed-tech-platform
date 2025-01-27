@@ -60,7 +60,7 @@ import Course_Card from "./Course_Card"
 // import './styles.css';
 
 // import required modules
-import { FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode, Pagination ,Autoplay } from 'swiper/modules';
 
 export default function Course_Slider({ Courses }) {
   return (
@@ -69,12 +69,17 @@ export default function Course_Slider({ Courses }) {
                 slidesPerView={3}
                 spaceBetween={25}
                 loop={true}
-                modules={[FreeMode, Pagination]}
-                breakpoints={{
-                  1024: {
-                    slidesPerView: 3,
-                  },
+                freeMode={false}
+                autoplay={{
+                  delay: 1500,
+                  disableOnInteraction: false,
                 }}
+                modules={[FreeMode, Pagination, Autoplay]}
+                // breakpoints={{
+                //   1024: {
+                //     slidesPerView: 3,
+                //   },
+                // }}
                 className="max-h-[30rem]"
               >
         {Courses?.map((course, i) => (

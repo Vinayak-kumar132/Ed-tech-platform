@@ -7,7 +7,7 @@ const Course = require("../models/Course")
 exports.updateCourseProgress = async(req,res) => {
  
   const {courseId, subsectionId} = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   const userId = req.user.id;
  
   
@@ -21,7 +21,7 @@ exports.updateCourseProgress = async(req,res) => {
           return res.status(404).json({error:"Invalid SUbSection"});
       }
 
-      console.log("SubSection Validation Done");
+      // console.log("SubSection Validation Done");
 
       //check for old entry 
       let courseProgress = await CourseProgress.findOne({
@@ -36,7 +36,7 @@ exports.updateCourseProgress = async(req,res) => {
           });
       }
       else {
-          console.log("Course Progress Validation Done");
+          // console.log("Course Progress Validation Done");
           //check for re-completing video/subsection
           if(courseProgress.completedVideos.includes(subsectionId)) {
               return res.status(400).json({
@@ -46,10 +46,10 @@ exports.updateCourseProgress = async(req,res) => {
 
           //poush into completed video
           courseProgress.completedVideos.push(subsectionId);
-          console.log("Copurse Progress Push Done");
+          // console.log("Copurse Progress Push Done");
       }
       await courseProgress.save();
-      console.log("Course Progress Save call Done");
+      
       return res.status(200).json({
           success:true,
           message:"Course Progress Updated Successfully",
@@ -91,7 +91,7 @@ exports.getProgressPercentage = async (req, res) => {
         .status(400)
         .json({ error: "Can not find Course Progress with these IDs." })
     }
-    console.log(courseProgress, userId)
+    // console.log(courseProgress, userId)
     let lectures = 0
     courseProgress.courseID.courseContent?.forEach((sec) => {
       lectures += sec.subSection.length || 0

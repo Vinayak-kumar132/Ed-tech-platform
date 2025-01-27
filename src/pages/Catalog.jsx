@@ -47,7 +47,7 @@ function Catalog() {
         try {
           const res = await getCatalogPageData(categoryId)
           setCatalogPageData(res)
-          console.log(res);
+          // console.log(res);
         } catch (error) {
           console.log(error)
         }

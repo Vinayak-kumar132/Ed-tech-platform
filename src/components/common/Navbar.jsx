@@ -67,7 +67,7 @@ const Navbar = () => {
                         <IoChevronDownSharp />
                         {/* Dropdown container */}
                         <div
-                          className="invisible absolute left-[50%] top-full z-[1000] flex w-[300px] translate-x-[-50%] translate-y-2 flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-4 group-hover:opacity-100"
+                          className="invisible absolute left-[50%] top-full z-[100] flex w-[300px] translate-x-[-50%] translate-y-2 flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-4 group-hover:opacity-100"
                         >
                           {/* Arrow */}
                           <div className="absolute left-[50%] top-0 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-richblack-5"></div>
