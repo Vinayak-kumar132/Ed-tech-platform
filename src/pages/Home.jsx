@@ -66,7 +66,7 @@ const Home = () => {
                 <div>
                     <CodeBlocks
 
-                        position={"lg:flex-row"}
+                        position={"flex-col md:flex-row"}
                         heading={
                             <div className='text-4xl font-semibold '>
                                 Unlock Your
@@ -101,7 +101,7 @@ const Home = () => {
                 {/* Code Section 2 */}
                 <div>
                     <CodeBlocks
-                        position={"lg:flex-row-reverse"}
+                        position={"flex-col md:flex-row-reverse"}
                         heading={
                             <div className='text-4xl font-semibold'>
                                 start

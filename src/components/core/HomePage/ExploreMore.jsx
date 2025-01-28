@@ -39,7 +39,7 @@ const ExploreMore = () => {
         Learn to build anything you can imagine
       </p>
 
-      <div className='mt-5 flex flex-row rounded-full bg-richblack-800 mb-5 border-richblack-100
+      <div className='hidden mt-5 lg:flex flex-row rounded-full bg-richblack-800 mb-5 border-richblack-100
       px-1 py-1'>
         {
           tabsName.map((element, index) => {
@@ -65,7 +65,7 @@ const ExploreMore = () => {
 
       {/* course card ka group */}
 
-      <div className='absolute flex flex-row gap-10   justify-between translate-x-[-20%] -bottom-[90px] w-full '>
+      <div className='hidden absolute lg:flex flex-row gap-10   justify-between translate-x-[-20%] -bottom-[90px] w-full '>
         {
           courses.map((element, index) => {
             return (

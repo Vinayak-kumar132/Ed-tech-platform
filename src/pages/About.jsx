@@ -66,7 +66,7 @@ const About = () => {
                         and nurturing a vibrant learning community.
                     </motion.p>
 
-                    <div className='absolute top-[300px] left-[50%] -translate-x-[50%] flex gap-[24px] justify-center items-center mt-14 flex-wrap lg:flex-nowrap '>
+                    <div className='absolute top-[340px] left-[50%] -translate-x-[50%] flex gap-[24px] justify-center items-center mt-14 flex-wrap lg:flex-nowrap '>
                         {/* <img src={BannerImage1} width='384px' height='311px' alt='BI1' /> */}
                         <motion.img
                             src={BannerImage1}
@@ -176,7 +176,7 @@ const About = () => {
 
             {/* section 5 */}
             <section>
-                <div className='w-[1200px] mx-auto flex flex-col items-center justify-center gap-5'>
+                <div className='lg:w-[1200px] mx-auto flex flex-col items-center justify-center gap-5'>
                     <LearningGrid />
                     <ContactFormSection />
                 </div>
