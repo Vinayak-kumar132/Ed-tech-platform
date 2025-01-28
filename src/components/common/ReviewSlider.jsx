@@ -40,7 +40,7 @@ function ReviewSlider() {
     <div className="text-white">
       <div className="my-[50px] h-[184px] max-w-maxContentTab lg:max-w-maxContent">
         <Swiper
-          slidesPerView={4}
+          slidesPerView={1}
           spaceBetween={25}
           loop={true}
           freeMode={true}
@@ -50,6 +50,20 @@ function ReviewSlider() {
           }}
           modules={[FreeMode, Pagination, Autoplay]}
           className="w-full flex mx-auto"
+          breakpoints={{
+            320: {
+              slidesPerView: 1, // Extra Small Screens (xs)
+            },
+            480: {
+              slidesPerView: 2, // Small Screens (sm)
+            },
+            768: {
+              slidesPerView: 3, // Medium Screens (md)
+            },
+            1024: {
+              slidesPerView: 4, // Large Screens (lg)
+            },
+          }}
         >
           {reviews.map((review, i) => {
             return (
