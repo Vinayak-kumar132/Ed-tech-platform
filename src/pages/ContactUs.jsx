@@ -5,14 +5,15 @@ import { IoMdChatboxes } from "react-icons/io";
 import { TiWorld } from "react-icons/ti";
 import { MdCall } from "react-icons/md";
 import {motion} from "framer-motion"
+import ReviewSlider from '../components/common/ReviewSlider';
 
 const ContactUs = () => {
     return (
-        <div className='flex flex-col '>
+        <div className='flex flex-col'>
 
-            <div className='flex flex-col lg:flex-row mx-auto mt-28 gap-10 w-[1200px] mb-32'>
+            <div className='flex  flex-col-reverse lg:flex-row mx-auto mt-28 gap-10 w-full flex-wrap lg:w-[1200px] mb-32'>
 
-                <motion.div className='flex flex-col gap-8 w-[450px] h-[390px] bg-richblack-800 rounded-lg  p-8'
+                <motion.div className='flex flex-col gap-8 w-full lg:w-[450px] h-[390px] bg-richblack-800 rounded-lg  p-8'
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -65,7 +66,7 @@ const ContactUs = () => {
                 </motion.div>
 
 
-                <div className='text-richblack-25 rounded-lg border border-richblack-600 p-12 '>
+                <div className='text-richblack-25 max-w-maxContentTab rounded-lg border border-richblack-600 p-12 '>
 
                     <h1 className=' text-[36px] font-semibold'>Got a Idea? We’ve got the skills. Let’s team up</h1>
 
@@ -81,6 +82,12 @@ const ContactUs = () => {
 
 
             {/* review slider */}
+            <div className='w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 first-letter'>
+
+                <h1 className='text-center font-edu-sa text-[36px] font-semibold text-richblack-5'>Reviews from other learners</h1>
+                <ReviewSlider/>
+                
+            </div>
 
             <div>
                 <Footer />

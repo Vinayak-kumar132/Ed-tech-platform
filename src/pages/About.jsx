@@ -176,7 +176,7 @@ const About = () => {
 
             {/* section 5 */}
             <section>
-                <div className='lg:w-[1200px] mx-auto flex flex-col items-center justify-center gap-5'>
+                <div className='w-full lg:w-[1200px] mx-auto flex flex-col items-center justify-center gap-5'>
                     <LearningGrid />
                     <ContactFormSection />
                 </div>
@@ -185,7 +185,7 @@ const About = () => {
 
             {/* section 6 */}
             {/* review slider -->H/W */}
-            <div className='w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 first-letter'>
+            <div className='w-11/12 mt-24 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 first-letter'>
             {/* w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 first-letter bg-richblack-900 text-white */}
 
                 <h1 className='text-center font-edu-sa text-[36px] font-semibold text-richblack-5'>Reviews from other learners</h1>
