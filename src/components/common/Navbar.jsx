@@ -124,7 +124,7 @@ const Navbar = () => {
                   {
                     totalItems > 0 &&
                     <span
-                      className='absolute flex items-center justify-center top-[-4px] right-[-4px] text-xs font-bold bg-caribbeangreen-25  text-richblack-700 h-4 w-4 rounded-full'>
+                      className='absolute flex items-center justify-center top-[-4px] right-[-4px] text-xs font-bold bg-caribbeangreen-25 animate-bounce text-richblack-700 h-4 w-4 rounded-full'>
                       {totalItems}
                     </span>
 

@@ -25,7 +25,7 @@ exports.resetPasswordToken = async (req, res) => {
 		);
 		// console.log("DETAILS", updatedDetails);
 
-		const url = `http://localhost:3000/update-password/${token}`;
+		const url = `https://studynotion-edtechplatform-ten.vercel.app/update-password/${token}`;
 		// console.log("FrontEnd Link for ResetPassword : ",url);
 
 		await mailSender(
