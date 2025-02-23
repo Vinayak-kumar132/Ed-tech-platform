@@ -21,6 +21,7 @@ exports.auth = async (req, res, next) => {
         //verify the token
         try{
             const decode =  jwt.verify(token, process.env.JWT_SECRET);
+            //Jo data jwt.sign() me bheja tha, wahi jwt.verify() ke decoded me milega object form me.
             // console.log(decode);
             req.user = decode;
         }
